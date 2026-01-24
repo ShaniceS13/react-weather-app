@@ -4,7 +4,6 @@ import "./Weather.css";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
-  const [temperature, setTemperature] = useState(null);
 
   function handleResponse(response) {
     console.log(response.data);
@@ -73,8 +72,8 @@ export default function Weather(props) {
     );
   } else {
     const apiKey = "5aaf35163dab1f6084ofbdbf0bt4edf4";
-    let city = "Powder Springs";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
+
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(handleResponse);
 
     return "Loading";
