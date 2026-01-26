@@ -11,7 +11,7 @@ export default function App() {
           <a
             href="https://github.com/ShaniceS13"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noreferrer"
           >
             Shanice Solomon
           </a>{" "}
@@ -19,7 +19,7 @@ export default function App() {
           <a
             href="https://github.com/ShaniceS13/react-weather-app"
             target="_blank"
-            rel="noopener noferrer"
+            rel="noferrer"
           >
             GitHub
           </a>
