@@ -8,9 +8,21 @@ export default function App() {
         <Weather defaultCity="Powder Springs" />
         <footer>
           This project was coded by{" "}
-          <a href="https://github.com/ShaniceS13">Shanice Solomon</a> and is
-          open-sourced on {""}
-          <a href="https://github.com/ShaniceS13/react-weather-app">GitHub</a>
+          <a
+            href="https://github.com/ShaniceS13"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Shanice Solomon
+          </a>{" "}
+          and is open-sourced on {""}
+          <a
+            href="https://github.com/ShaniceS13/react-weather-app"
+            target="_blank"
+            rel="noopener noferrer"
+          >
+            GitHub
+          </a>
         </footer>
       </div>
     </div>
