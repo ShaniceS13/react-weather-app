@@ -2,6 +2,34 @@
   text-align: center;
 }
 
+.WeatherForecast .row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.WeatherForecast .col {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 18px;
+  padding: 10px 6px;
+  min-width: 70px;
+}
+
+.WeatherForecast-day {
+  font-size: 12px;
+  margin-bottom: 4px;
+  opacity: 0.85;
+}
+
+.WeatherForecast-temperatures {
+  margin-top: 4px;
+  font-size: 11px;
+}
+
+.WeatherForecast-temperature-max {
+  font-weight: 600;
+}
+
 .WeatherForecast-temperature-min {
   opacity: 0.6;
   margin-left: 5px;

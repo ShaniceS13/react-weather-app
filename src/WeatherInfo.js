@@ -6,27 +6,37 @@ import WeatherTemperature from "./WeatherTemperature";
 export default function WeatherInfo(props) {
   return (
     <div className="WeatherInfo">
-      <h1>{props.data.city}</h1>
-      <ul>
-        <li>
+      {/* City + date + description */}
+      <div className="weather-header">
+        <h1>{props.data.city}</h1>
+        <p className="weather-date">
           <FormattedDate date={props.data.date} />
-        </li>
-        <li className="text-capitalize">{props.data.description}</li>
-      </ul>
-      <div className="row mt-3">
-        <div className="col-6">
-          <div className="d-flex align-items-center">
-            <div className="float-left">
-              <WeatherIcon code={props.data.icon} size={52} />
-            </div>{" "}
-            <WeatherTemperature fahrenheit={props.data.temperature} />
-          </div>
+        </p>
+        <p className="weather-description text-capitalize">
+          {props.data.description}
+        </p>
+      </div>
+
+      {/* Big icon + temp */}
+      <div className="weather-main">
+        <WeatherIcon code={props.data.icon} size={82} />
+        <WeatherTemperature fahrenheit={props.data.temperature} />
+        <p className="weather-subtitle">
+          Expect {props.data.description} today.
+        </p>
+      </div>
+
+      {/* Small stats row */}
+      <div className="weather-details">
+        <div className="weather-detail-item">
+          <span className="weather-detail-label">Humidity</span>
+          <span className="weather-detail-value">{props.data.humidity} %</span>
         </div>
-        <div className="col-6">
-          <ul>
-            <li>Humidity: {props.data.humidity} %</li>
-            <li>Wind: {props.data.wind} mph</li>
-          </ul>
+        <div className="weather-detail-item">
+          <span className="weather-detail-label">Wind</span>
+          <span className="weather-detail-value">
+            {Math.round(props.data.wind)} mph
+          </span>
         </div>
       </div>
     </div>
