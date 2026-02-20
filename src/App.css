@@ -7,6 +7,12 @@
 .App footer {
   font-size: 11px;
   margin: 10px 0;
+  text-align: center;
+}
+
+footer a {
+  color: #962071;
+  text-decoration: none;
 }
 
 body {
