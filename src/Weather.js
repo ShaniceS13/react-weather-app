@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 import WeatherInfo from "./WeatherInfo";
-import axios from "axios";
-import "./Weather.css";
 import WeatherForecast from "./WeatherForecast";
+import "./Weather.css";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -26,7 +26,6 @@ export default function Weather(props) {
 
   function search() {
     const apiKey = "5aaf35163dab1f6084ofbdbf0bt4edf4";
-
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(handleResponse);
   }
@@ -43,28 +42,33 @@ export default function Weather(props) {
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <form onSubmit={handleSubmit}>
-          <div className="row">
-            <div className="col-9">
+        {/* App background + centering */}
+        <div className="weather-app-shell">
+          {/* Main rounded card */}
+          <div className="weather-card">
+            {/* Search bar */}
+            <form onSubmit={handleSubmit} className="weather-form">
               <input
                 type="search"
                 placeholder="Enter a city..."
-                className="form-control"
+                className="weather-input"
                 autoFocus="on"
                 onChange={handleCityChange}
               />
-            </div>
-            <div className="col-3">
               <input
                 type="submit"
-                value="search"
-                className="btn btn-primary w-100"
+                value="Search"
+                className="weather-search-button"
               />
+            </form>
+
+            <WeatherInfo data={weatherData} />
+
+            <div className="weather-forecast-wrapper">
+              <WeatherForecast coordinates={weatherData.coordinates} />
             </div>
           </div>
-        </form>
-        <WeatherInfo data={weatherData} />
-        <WeatherForecast coordinates={weatherData.coordinates} />
+        </div>
       </div>
     );
   } else {
